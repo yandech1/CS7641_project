@@ -1,7 +1,7 @@
 ### Outline
-1. Introduction
-2. Dataset
-3. Unsupervised Learning
+1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
+2. [Dataset]((https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
+3. [Unsupervised Learning](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
   - Method
   - Results
   - Analysis
