@@ -1,6 +1,3 @@
 theme: jekyll-theme-cayman
 title: Neural Style Transfer using Cycle-Consistent GAN
-description: CS7641 Summer 2020
-author: Saeed Rashidi, Diwakar Singh, Bethany Tate, Decheng Yan
-navbar-links:
-  Video Presentation: "https://www.youtube.com/watch?v=NyAosnNQv_U"
+description: Saeed Rashidi, Diwakar Singh, Bethany Tate, Decheng Yan
