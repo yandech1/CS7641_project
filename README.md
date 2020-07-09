@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Neural Style Transfer using Cycle-Consistent GAN
 
 You can use the [editor on GitHub](https://github.com/yandech1/CS7641_project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
