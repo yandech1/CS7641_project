@@ -1,3 +1,5 @@
+title: Neural Style Transfer using Cycle-Consistent GAN
+description: CS7641 Summer 2020
 
 ### Outline
 1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
