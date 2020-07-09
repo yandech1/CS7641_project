@@ -20,11 +20,14 @@ between two specific images, by trying to capture correspondences between higher
 structures. [3]
 ## Dataset
 ## Unsupervised Learning
-#### Method
+#### Preprocessing
+#### Cycle-GAN
+#### VAE (Variational Auto-Encoder)
 #### Results
 ## Supervised Learning
 #### Method
 #### Results
+## Loss Functions
 ## Evaluation Metrics
 #### Analysis
 ## Conclusion and Future Work
