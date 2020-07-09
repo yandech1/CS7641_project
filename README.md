@@ -1,4 +1,4 @@
-## Neural Style Transfer using Cycle-Consistent GAN
+## An Exploration of Image-to-Image Translation
 ### Outline
 1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
 2. [Dataset](https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
@@ -24,10 +24,13 @@ structures. [3]
 #### Cycle-GAN
 #### VAE (Variational Auto-Encoder)
 #### Results
-## Supervised Learning
+## Supervised Learning??
 #### Method
 #### Results
 ## Loss Functions
+#### Adversarial loss 
+#### Cycle-Consistent loss 
+#### Perceptual loss 
 ## Evaluation Metrics
 #### Analysis
 ## Conclusion and Future Work
