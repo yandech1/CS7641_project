@@ -1,2 +1,5 @@
-## CS7641 Summer 2020
-### Neural Style Transfer using Cycle-Consistent GAN
+### Outline
+1. Introduction
+2. Dataset
+  i. Type 1
+  ii. Type 2
