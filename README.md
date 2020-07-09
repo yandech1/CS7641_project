@@ -11,13 +11,13 @@
 
 ## Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the
-mapping between an input image and an output image using a training set of aligned image pairs. [1](https://github.com/bethanystate/CS7641_project/blob/master/README.md#1-p-isola-j-y-zhu-t-zhou-and-a-a-efros-image-to-image-translation-with-conditional)
+mapping between an input image and an output image using a training set of aligned image pairs. [1](https://github.com/bethanystate/CS7641_project/blob/master/README.md#1-p-isola-j-y-zhu-t-zhou-and-a-a-efros-image-to-image-translation-with-conditional-adversarial-networks-in-proceedings-of-the-ieee-conference-on-computer-vision-and-pattern-recognition-pp-11251134-2017)
 Neural Style Transfer is one way to perform image-to-image translation, which synthesizes a novel
 image by combining the content of one image with the style of another image-based on matching
-the Gram matrix statistics of pre-trained deep features. [2](https://github.com/bethanystate/CS7641_project/blob/master/README.md#2-l-a-gatys-a-s-ecker-and-m-bethge-a-neural-algorithm-of-artistic-style-arxiv-preprint) The primary focus of this project is to
+the Gram matrix statistics of pre-trained deep features. [2](https://github.com/bethanystate/CS7641_project/blob/master/README.md#2-l-a-gatys-a-s-ecker-and-m-bethge-a-neural-algorithm-of-artistic-style-arxiv-pre-printarxiv150806576-2015) The primary focus of this project is to
 directly learn the mapping between two image collections (in an unsupervised way), rather than
 between two specific images, by trying to capture correspondences between higher-level appearance
-structures. [3]
+structures. [3](https://github.com/bethanystate/CS7641_project/blob/master/README.md#3-j-y-zhu-t-park-p-isola-and-a-a-efros-unpaired-image-to-image-translation-using-cycle-consistent-adversarial-networks-in-proceedings-of-the-ieee-international-conference-on-computer-vision-pp-22232232-2017)
 
 ## Dataset
 ## Unsupervised Learning
