@@ -1,4 +1,4 @@
-## An Exploration of Image-to-Image Translation
+## Neural Style Transfer using Cycle-Consistent GAN
 ### Outline
 1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
 2. [Dataset](https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
@@ -19,6 +19,7 @@ directly learn the mapping between two image collections (in an unsupervised way
 between two specific images, by trying to capture correspondences between higher-level appearance
 structures. [3]
 ## Dataset
+The data used for this image-to-image translation was sourced from a [UC Berkley CycleGAN dataset](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) by way of [TensorFlow](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo).
 ## Unsupervised Learning
 #### Preprocessing
 #### Cycle-GAN
