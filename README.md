@@ -12,8 +12,13 @@
 ## Introduction
 ## Dataset
 ## Unsupervised Learning
+   - Method
+   - Results
 ## Supervised Learning
+   - Method
+   - Results
 ## Evaluation Metrics
+   - Analysis
 ## Conclusion and Future Work
 ## References
 #### Contributions
