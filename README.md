@@ -1,3 +1,4 @@
+
 ### Outline
 1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
 2. [Dataset](https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
