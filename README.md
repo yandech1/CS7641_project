@@ -13,3 +13,18 @@
 6. Conclusion and Future Work
 7. References
 8. Contributions
+
+## Introduction
+## Dataset
+## Unsupervised Learning
+### Method
+### Results
+### Analysis
+## Supervised Learning
+### Method
+### Results
+### Analysis
+## Evaluation Metrics
+## Conclusion and Future Work
+## References
+#### Contributions
