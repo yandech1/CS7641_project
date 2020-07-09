@@ -1,3 +1,4 @@
 theme: jekyll-theme-cayman
 title: Neural Style Transfer using Cycle-Consistent GAN
 description: CS7641 Summer 2020
+<h1>{{ "Saeed Rashide, Diwakar Singh, Bethany Tate, Decheng Yan" | downcase }}</h1>
