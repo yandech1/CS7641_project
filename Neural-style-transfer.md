@@ -19,7 +19,7 @@ directly learn the mapping between two image collections (in an unsupervised way
 between two specific images, by trying to capture correspondences between higher-level appearance
 structures. [3]
 ## Dataset
-The data used for this image-to-image translation was sourced from a [UC Berkley CycleGAN dataset](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) by way of [TensorFlow](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo).
+The dataset used for this image-to-image translation was sourced from a [UC Berkley CycleGAN Directory](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) by way of [TensorFlow](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo). It consists of 8,000+ images from 2 classes: French Impressionist paintings and modern photography both of landscapes and other natural scenes. The completeness of this dataset is attributed to the labeled training set of the two aligned classes that we then use to synthesize new images of nature in the style of Monet.
 ## Unsupervised Learning
 #### Preprocessing
 #### Cycle-GAN
