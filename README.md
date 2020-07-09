@@ -1,29 +1,17 @@
 ### Outline
 1. [Introduction](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
-2. [Dataset]((https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
-3. [Unsupervised Learning](https://github.com/bethanystate/CS7641_project/blob/master/README.md#introduction)
-  - Method
-  - Results
-  - Analysis
-4. Supervised Learning
-  - Method
-  - Results
-  - Analysis
-5. Evaluation Metrics
-6. Conclusion and Future Work
-7. References
-8. Contributions
+2. [Dataset](https://github.com/bethanystate/CS7641_project/blob/master/README.md#dataset)
+3. [Unsupervised Learning](https://github.com/bethanystate/CS7641_project/blob/master/README.md#unsupervised-learning)
+4. [Supervised Learning](https://github.com/bethanystate/CS7641_project/blob/master/README.md#supervised-learning)
+5. [Evaluation Metrics](https://github.com/bethanystate/CS7641_project/blob/master/README.md#evaluation-metrics)
+6. [Conclusion and Future Work](https://github.com/bethanystate/CS7641_project/blob/master/README.md#conclusion-and-future-work)
+7. [References](https://github.com/bethanystate/CS7641_project/blob/master/README.md#references)
+8. [Contributions](https://github.com/bethanystate/CS7641_project/blob/master/README.md#contributions)
 
 ## Introduction
 ## Dataset
 ## Unsupervised Learning
-### Method
-### Results
-### Analysis
 ## Supervised Learning
-### Method
-### Results
-### Analysis
 ## Evaluation Metrics
 ## Conclusion and Future Work
 ## References
