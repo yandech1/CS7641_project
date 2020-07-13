@@ -31,8 +31,10 @@ The dataset used for this image-to-image translation was sourced from a [UC Berk
 ## Loss Functions
 In CycleGAN, there is no paired data to train on, so there is no guarantee that the input $X$ and the target pair $Y$ are meaningful during training. Thus, in order to enforcee that the network learns the correct mapping, the cycle-consistency loss is used.
 #### Adversarial loss
-Changes the style
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}"> _{data}(y)[logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[log(1-D_{y}(G(x))]">
+The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math= G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math= D_{Y}"> is expressed as:
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> 
+The goal is to generate images that are similar in style Y while distinguising between the test data and the training data. 
+
 
 #### Cycle-Consistent loss 
 Preserves the content
