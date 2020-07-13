@@ -32,9 +32,8 @@ The dataset used for this image-to-image translation was sourced from a [UC Berk
 In CycleGAN, there is no paired data to train on, so there is no guarantee that the input $X$ and the target pair $Y$ are meaningful during training. Thus, in order to enforcee that the network learns the correct mapping, the cycle-consistency loss is used.
 #### Adversarial loss
 Changes the style
-$$\mathcal{L}$$
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}"> _{data}(y)[logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[log(1-D_{y}(G(x))]">
 
-(G, D_{Y}, X, Y) = \mathbb{E}_{y~p}_{data}(y)[logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[log(1-D_{y}(G(x))]$
 #### Cycle-Consistent loss 
 Preserves the content
 #### Perceptual loss 
