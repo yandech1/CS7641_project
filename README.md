@@ -50,7 +50,7 @@ The network architecture consists of two 3x3 convolutions (unpadded convolutions
 ##### PixelGAN
 ##### ImageGAN
 #### Training Details
-In order to stabilize our training procedures, we contructing a loop that consists of four basic steps:
+In order to stabilize our training procedures, we contructed a loop that consists of four basic steps:
  - Get the predictions
  - Calculate the loss
  - Calculate the gradient using backpropogation
