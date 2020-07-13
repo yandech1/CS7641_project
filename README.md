@@ -33,8 +33,8 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]+\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
 
 ![Cycle-Consistency Loss](https://miro.medium.com/max/1258/1*XhdrXh3UfCM4CecRrTwMCQ.png)
-<img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X->G(X)->F(G(X))\sim \hat X">
-<img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y->F(Y)->G(F(Y))\sim \hat Y">
+<img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X->G(X)->F(G(X))~ \hat X">
+<img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y->F(Y)->G(F(Y))~ \hat Y">
 
 #### Total Generator Loss
 
