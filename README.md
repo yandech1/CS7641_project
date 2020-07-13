@@ -56,7 +56,7 @@ In order to stabilize our training procedures, we contructing a loop that consis
  - Calculate the gradient using backpropogation
  - Apply the gradient to the optimizer
  
-Within these training procedures, there is a random square cropping of the original images for training and a defined learning rate of <img src="https://render.githubusercontent.com/render/math?math=2\exp(-4)">. However, in practice, the objective is divided by 2 while optimizing D, which slows down the rate at which D learns, relative to the rate of G. This learning rate is constant for the first 100 epochs and linearly decays to zero over the next 100 epochs.    
+Within these training procedures, there is a random square cropping of the original images for training and a defined learning rate of <img src="https://render.githubusercontent.com/render/math?math=2e^{-4}">. However, in practice, the objective is divided by 2 while optimizing D, which slows down the rate at which D learns, relative to the rate of G. This learning rate is constant for the first 100 epochs and linearly decays to zero over the next 100 epochs.    
 
 ## Results
 #### Evaluation Metrics
