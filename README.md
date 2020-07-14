@@ -1,3 +1,4 @@
+![Image-to-Image Translation](https://github.com/bethanystate/CS7641_project/blob/master/Screen%20Shot%202020-07-14%20at%204.05.34%20PM.png?raw=true)
 
 ## Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the
