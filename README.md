@@ -40,7 +40,7 @@ The network architecture consists of two 3x3 convolutions (unpadded convolutions
 
 #### Discriminator Architecture
 ##### PatchGAN
-The aim with PatchGAN  is to use the generative model in order classify whether overlapping image patches are real or fake. Because this discriminator requires fewer parameters, it works will with arbitrarily-sized images in the same way as full convolution.
+The aim with PatchGAN  is to use the generative model in order classify whether overlapping image patches are real or fake. Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator acts as a for of texture or stylve loss.
 
 ##### PixelGAN
 ##### ImageGAN
