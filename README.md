@@ -11,12 +11,6 @@ structures. [3]
 ## Dataset
 The dataset used for this image-to-image translation was sourced from a [UC Berkley CycleGAN Directory](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) by way of [TensorFlow](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo). It consists of 8,000+ images from 2 classes: French Impressionist paintings and modern photography both of landscapes and other natural scenes. The completeness of this dataset is attributed to the labeled training set of the two aligned classes that we then use to synthesize new images of nature in the style of Monet.
 
-## Unsupervised Learning
-#### Preprocessing
-#### Cycle-GAN
-#### VAE (Variational Auto-Encoder)
-#### 
-
 ## Formulation
 In CycleGAN, there is no paired data to train on, so there is no guarantee that the input <img src="https://render.githubusercontent.com/render/math?math=X"> and the target pair <img src="https://render.githubusercontent.com/render/math?math=Y"> are meaningful during training. Thus, in order to enforcee that the network learns the correct mapping, the cycle-consistency loss is used.
 #### Adversarial loss
@@ -35,6 +29,7 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y->F(Y)->G(F(Y))~ \hat Y">
 
 #### Total Generator Loss
+
 
 ## Implementation
 #### Generator Architecture
@@ -56,9 +51,35 @@ In order to stabilize our training procedures, we contructed a loop that consist
  
 Within these training procedures, there is a random square cropping of the original images for training and a defined learning rate of <img src="https://render.githubusercontent.com/render/math?math=2e^{-4}">. However, in practice, the objective is divided by 2 while optimizing D, which slows down the rate at which D learns, relative to the rate of G. This learning rate is constant for the first 100 epochs and linearly decays to zero over the next 100 epochs.    
 
-## Results
-#### Evaluation Metrics
-#### Analysis
+## Experiments and Results
+#### ResNet on different datasets  with default Generator and PatchGAN
+ - Monet
+ - Cezanne
+ - Ukiyou
+ - Van Gogh
+#### Different generator architecture with PatchGAN
+ - Resnet with norm_type = Batch Norm 
+ - Resnet with norm_type = Instance Norm
+ - Resnet with type_net = ”non-residual”
+ - U-Net and PatchGAN with norm_type = Batch Norm
+ - U-Net with norm_type = Batch Norm and PatchGAN with InstanceNorm 
+ - U-Net with norm_type = Instance Norm
+#### ResNet with default generator configuration and different discriminator
+ - PixelGAN
+ - PatchGAN (n_layers=1) 
+ - PatchGAN (n_layers=3) 
+ - PatchGAN (n_layers=5) = ImageGAN
+#### ResNet with default config but with different padding type
+ - Reflect
+ - Zero
+ - Symmetric
+ #### Different loss function
+ - Binary Cross Entropy for adversarial loss
+ - MSE for adversarial loss 
+
+
+### Evaluation Metrics
+### Analysis
 
 ## Conclusion and Future Work
 
