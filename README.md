@@ -1,3 +1,4 @@
+# Neural Style Transfer using Cycle-Consistent GAN
 ## Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the mapping between an input image and an output image using a training set of aligned image pairs. [1] Neural Style Transfer is one way to perform image-to-image translation, which synthesizes a novel image by combining the content of one image with the style of another image-based on matching the Gram matrix statistics of pre-trained deep features [2]. Unlike recent work on "neural style transfer", we used CycleGAN [3] method which learns to mimic the style of an entire collection of artworks, rather than transferring the style of a single selecterd piece of art. Therefore, we can learn to generate photos in the style of, e.g., Van Gogh, rather than just in the style of Starry Night.
 
