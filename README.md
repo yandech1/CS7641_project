@@ -110,7 +110,10 @@ Within these training procedures, there is a random square cropping of the origi
  - PatchGAN (n_layers=1) 
  - PatchGAN (n_layers=3) 
  - PatchGAN (n_layers=5) = ImageGAN
- 
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types1.png?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types2.png?raw=true) 
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types3.png?raw=true)
+
 #### ResNet with default config but with different padding type
  - Reflect
  - Zero
