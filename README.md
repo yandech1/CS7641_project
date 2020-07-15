@@ -118,11 +118,15 @@ Within these training procedures, there is a random square cropping of the origi
  - Reflect
  - Zero
  - Symmetric
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type1.jpg?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type3.jpg?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type4_.jpg?raw=true) 
  
 #### Different loss function
- - Binary Cross Entropy for adversarial loss
- - MSE for adversarial loss 
-
+ - Binary Cross Entropy for Adversarial Loss
+ - MSE for Adversarial Loss 
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true) 
 
 ## Evaluation Metrics
 ## Analysis
