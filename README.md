@@ -155,14 +155,14 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - PatchGAN (n_layers=3) 
  - PatchGAN (n_layers=5) = ImageGAN
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types1.png?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types2.png?raw=true) 
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types3.png?raw=true)
 
 #### ResNet with default config but with different padding type
  - Reflect
  - Zero
  - Symmetric
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type1.jpg?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type3.jpg?raw=true)
  
 #### Different loss function
  - Binary Cross Entropy for Adversarial Loss
