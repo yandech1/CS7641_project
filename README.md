@@ -1,12 +1,12 @@
-## Introduction
+# Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the mapping between an input image and an output image using a training set of aligned image pairs. [1] Neural Style Transfer is one way to perform image-to-image translation, which synthesizes a novel image by combining the content of one image with the style of another image-based on matching the Gram matrix statistics of pre-trained deep features [2]. Unlike recent work on "neural style transfer", we used CycleGAN [3] method which learns to mimic the style of an entire collection of artworks, rather than transferring the style of a single selecterd piece of art. Therefore, we can learn to generate photos in the style of, e.g., Van Gogh, rather than just in the style of Starry Night.
 
-## Dataset
+# Dataset
 The dataset used for this project is sourced from a [UC Berkley CycleGAN Directory](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) and is downloaded from by[TensorFlow Datasets](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo). It consists of 8,000+ images from 2 classes: French Impressionist paintings and modern photography both of landscapes and other natural scenes. The size of the dataset for each artist/style was 526, 1073, 400, and 463 for Cezanne, Monet, Van Gigh, and Ukiyo-e. 
 
-## Formulation
+# Formulation
 In CycleGAN, there is no paired data to train on, so there is no guarantee that the input <img src="https://render.githubusercontent.com/render/math?math=X"> and the target pair <img src="https://render.githubusercontent.com/render/math?math=Y"> are meaningful during training. Thus, in order to enforcee that the network learns the correct mapping, the cycle-consistency loss is used. In addition, adversarial loss is used to train generator and discriminator networks. Moreover, the identity loss is used to make sure generators generate the same image if the input image belongs to their target domian. 
-#### Adversarial loss
+## Adversarial loss
 The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math=G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is expressed as:
  
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]
@@ -32,7 +32,7 @@ Therefore, the total Adverserial loss is expressed as:
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)">+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)">
 
 The goal is to generate images that are similar in style to the target domain while distinguising between the test data and the training data. 
-#### Cycle-Consistent loss 
+## Cycle-Consistent loss 
 Adversarial losses alone do not guarantee that the content will preserved as it is mapped from the input to the target domain; therefore, cycle-consistent functions are implemented in order to prevent the learned mappings from contradicting each other. This cycle consistency loss objective is: 
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]%2B\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
@@ -42,20 +42,20 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X \rightarrow G(X) \rightarrow F(G(X))~ \hat X">
 <img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y \rightarrow F(Y) \rightarrow G(F(Y))~ \hat Y">
 
-#### Identity loss 
+## Identity loss 
 For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
-#### Total Generator Loss
+## Total Generator Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
 
-## Implementation
-### Network Architecture
+# Implementation
+## Network Architecture
 The architecture for our generative networks is adopted from Johnson et al. who have shown impressive results for neural style trasnfer. Similar to Johnson et al. [], we use instance normalization [] instead of batch normalization []. Both generator and discriminator use modeules of the form convolution-InstanceNormalizatio-ReLu []. The keys features of the network are detailed below: 
-#### Generator Architecture 
+### Generator Architecture 
 A defining feature of image-to-image translation problems is that they map a high resolution input grid to a high resolution output grid. In addition, for the problems we consider, the input and output differ in surface appearance, but both are renderings of the same underlying structure. Therefore, structure in the input is roughly aligned with structure in the output. The generator architecture is designed around these considerations.
 
 #### ResNet
@@ -72,18 +72,19 @@ Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. CD denotes a Co
 
 **decoder:** CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
 
-#### Discriminator Architecture
-##### PatchGAN
-The aim with PatchGAN  is to use the generative model in order classify whether overlapping image patches are real or fake. Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator acts as a for of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs. Figure below shows the architecture of PatchGAN.
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc1.png?raw=true)
+### Discriminator Architecture
+The discrimiator architecture is designed to model high-frequency structure and relying on L1 term in the error to force low-frequency correctness. In order to model high-frequencies, it is sufficient to restrict our attention to the structure in local image patches. Therefore, we the discriminator architecture is termed as PatchGAN – that only penalizes structure at the scale of patches. This discriminator tries to classify if each N × N patch in an image is real or fake. 
 
-##### PixelGAN
+Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator can be understood as a form of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs. 
+
+#### PatchGAN
+
+#### PixelGAN
 A 1x1 PixelGAN has small receptive fields because it is the most shawllow model. It is expected to encourage colorfulness while having no effect on spatial details, or sharpness. In image processing, this would be useful in color balancing and histogram matching of RGB images. Figure below shows the architecture of this PixelGAN.
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc2.png?raw=true)
 
-##### ImageGAN
+#### ImageGAN
 Full 286 x 286 ImageGAN requires more parameters and greater depth than the PatchGAN because it has a much larger receptive field. It is expected that the full-sized ImaeGAN will provide use with sharper image translations, but may be a lot harder to train our model. Figure below shows the architecture of ImageGAN.
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc3.png?raw=true)
+
 
 #### Training Details
 In order to stabilize our training procedures, we contructed a loop that consists of four basic steps:
