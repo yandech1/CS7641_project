@@ -67,11 +67,9 @@ The U-Net network architecture is adapted from []. The network architecture cons
 
 Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. CD denotes a Convolution-BatchNorm-Dropout-ReLU layer. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
 
-**encoder:**  
-C64-C128-C256-C512-C512-C512-C512-C512. 
+**encoder:** C64-C128-C256-C512-C512-C512-C512-C512. 
 
-**decoder:**. 
-CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
+**decoder:** CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
 
 #### Discriminator Architecture
 ##### PatchGAN
