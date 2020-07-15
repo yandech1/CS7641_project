@@ -47,7 +47,7 @@ For painting to photo, it is helpful to introduce an additional loss to encourag
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
-## Total Generator Loss
+## Total Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
