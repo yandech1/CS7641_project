@@ -47,7 +47,7 @@ For painting to photo, it is helpful to introduce an additional loss to encourag
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
-## Total Loss
+## Total Generator Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
@@ -77,13 +77,20 @@ The discrimiator architecture is designed to model high-frequency structure and 
 
 Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator can be understood as a form of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs. 
 
+Let Ck denote a 4 × 4 Convolution-InstanceNorm-LeakyReLU layer with k filters and stride 2. After the last layer, a convolution is applied to produce a 1-dimensional output. For the first C64 layer, InstanceNormalization is not applied. The activation function used is leaky ReLUs with a slope of 0.2. 
+
 #### PatchGAN
+Two different patch sizes are used in the experiments: 16x16 and 70x70. 
+The 16 x 16 discriminator architecture is: C64-C128
+The 70 x 70 discriminator architecture is: C64-C128-C256-C512 [Default Configuration unless specified otherwise]
 
 #### PixelGAN
-A 1x1 PixelGAN has small receptive fields because it is the most shawllow model. It is expected to encourage colorfulness while having no effect on spatial details, or sharpness. In image processing, this would be useful in color balancing and histogram matching of RGB images. Figure below shows the architecture of this PixelGAN.
+For the 1 x 1 patch size, the PatchGAN is referred as PixelGAN. 
+The PixelGAN architecture is: C64-C128 (In this special case, all convolutions are 1 × 1 spatial filters)
 
 #### ImageGAN
-Full 286 x 286 ImageGAN requires more parameters and greater depth than the PatchGAN because it has a much larger receptive field. It is expected that the full-sized ImaeGAN will provide use with sharper image translations, but may be a lot harder to train our model. Figure below shows the architecture of ImageGAN.
+The full 256 x 256 patch size is termed as ImageGAN. 
+The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
 
 
 #### Training Details
