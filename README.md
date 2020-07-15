@@ -120,7 +120,7 @@ For painting→photo, we find that it is helpful to introduce an additional loss
 In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [] on photo stylization. For each row, we first use two representative artworks as the style images for []. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
 
 <figure>
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption> <center>Figure 6: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </center> </figcaption>
 </figure>
 
