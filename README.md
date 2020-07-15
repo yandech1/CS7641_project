@@ -194,8 +194,6 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
    </p>
 </figure>
 
-# Evaluation Metrics
-# Analysis
 
 # Conclusion and Future Work
 
