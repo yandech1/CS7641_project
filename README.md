@@ -113,8 +113,8 @@ In order to stabilize our training procedures, we contructed a loop that consist
 ## Experiments and Results
 #### ResNet on different datasets  with default Generator and PatchGAN
 <figure>
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:100%">
-  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli" style="width:80%">
+  <figcaption>Figure 10: Collection style transfer I: we transfer input images into the artistic styles of Monet, Van Gogh, Cezanne, and Ukiyo-e. Please see our [Github repository](https://github.com/bethanystate/CS7641_project/tree/master/Results) for additional examples.</figcaption>
 </figure>
  
 #### Different generator architecture with PatchGAN
