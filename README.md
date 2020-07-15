@@ -101,14 +101,16 @@ We train our Resnet generator and PatchGAN (70 x 70) model on landcape photograp
 <figure>
  <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli" style="width:80%">
+  <figcaption> Figure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh. </figcaption>
   </p>
-  <figcaption> igure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh. </center></figcaption>
 </figure>
  
  
 <figure>
+  <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:80%">
-  <figcaption> <center>Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</center></figcaption>
+  <figcaption> Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</figcaption>
+  </p>
 </figure>
 
 ## Photo generation from paintings
