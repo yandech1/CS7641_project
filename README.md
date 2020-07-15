@@ -175,7 +175,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  
   <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" style="width:80%">
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" width="80%">
   <b> Figure 8: Qualitative comparison of the effect of different padding type.  </b><br> 
   <br><br>
    </p>
@@ -188,7 +188,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  
    <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" style="width:30%">
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" width="80%">
   <b> Figure 9: Qualitative comparison of the learning curve for different type of loss function.   </b><br> 
   <br><br>
    </p>
