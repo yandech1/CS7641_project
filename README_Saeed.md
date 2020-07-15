@@ -3,7 +3,7 @@ In CycleGAN, there is no paired data to train on, so there is no guarantee that 
 #### Adversarial loss
 The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math=G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is expressed as:
  
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]
 
 In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the:
 
@@ -16,10 +16,10 @@ and in fact is trained to maximize the:
 while the discriminator 
 <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">.
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">.
 
 On other hand, the same loss is applied for mapping from <img src="https://render.githubusercontent.com/render/math?math=F : Y \rightarrow X"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{X}">:
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]+\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]">
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]%2B\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]">
 
 Therefore, the total Adverserial loss is expressed as:
 
@@ -29,17 +29,22 @@ The goal is to generate images that are similar in style to the target domain wh
 #### Cycle-Consistent loss 
 Adversarial losses alone do not guarantee that the content will preserved as it is mapped from the input to the target domain; therefore, cycle-consistent functions are implemented in order to prevent the learned mappings from contradicting each other. This cycle consistency loss objective is: 
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]+\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]%2B\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
 
 ![Cycle-Consistency Loss](https://miro.medium.com/max/1258/1*XhdrXh3UfCM4CecRrTwMCQ.png)
 
 <img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X \rightarrow G(X) \rightarrow F(G(X))~ \hat X">
 <img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y \rightarrow F(Y) \rightarrow G(F(Y))~ \hat Y">
 
-#### Cycle-Consistent loss 
+#### Identity loss 
+For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator:
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
 #### Total Generator Loss
+Summing the total previously explained loss functions lead to the following total losss function:
 
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
 
 ## Implementation
 #### Generator Architecture
