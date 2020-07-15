@@ -3,7 +3,27 @@ In CycleGAN, there is no paired data to train on, so there is no guarantee that 
 #### Adversarial loss
 The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math=G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is expressed as:
  
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]  
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]
+
+In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the:
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">
+
+and in fact is trained to maximize the:
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]">
+
+while the discriminator 
+<img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]+\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">.
+
+On other hand, the same loss is applied for mapping from <img src="https://render.githubusercontent.com/render/math?math=F : Y \rightarrow X"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{X}">:
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]+\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]">
+
+Therefore, the total Adverserial loss is expressed as:
+
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)">+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)">
 
 The goal is to generate images that are similar in style to the target domain while distinguising between the test data and the training data. 
 #### Cycle-Consistent loss 
