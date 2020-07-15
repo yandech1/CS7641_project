@@ -99,18 +99,14 @@ In order to stabilize our training procedures, we contructed a loop that consist
 ## Collection Style Transfer
 We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. 
 <figure>
- <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli" style="width:80%">
-  <figcaption> Figure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh. </figcaption>
-  </p>
+  <figcaption> <center>Figure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh. </center></figcaption>
 </figure>
  
  
 <figure>
-  <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:80%">
-  <figcaption> Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</figcaption>
-  </p>
+  <figcaption> <center>Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</center></figcaption>
 </figure>
 
 ## Photo generation from paintings
@@ -123,7 +119,11 @@ For painting→photo, we find that it is helpful to introduce an additional loss
 ## Comparison with recent neural style techniques
 In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [] on photo stylization. For each row, we first use two representative artworks as the style images for []. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
 
-![](https://github.com/bethanystate/CS7641_project/blob/master/Results/%204/Literature_comparison.png?raw=true)
+<figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
+  <figcaption> <center>Figure 6: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </center> </figcaption>
+</figure>
+![]()
 
 ## Experiments
 #### Different generator architecture with PatchGAN
@@ -142,17 +142,15 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - PatchGAN (n_layers=3) 
  - PatchGAN (n_layers=5) = ImageGAN
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types1.png?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types2.png?raw=true) 
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types3.png?raw=true)
+
 
 #### ResNet with default config but with different padding type
  - Reflect
  - Zero
  - Symmetric
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type1.jpg?raw=true)
+
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type3.jpg?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type4_.jpg?raw=true) 
+
  
 #### Different loss function
  - Binary Cross Entropy for Adversarial Loss
