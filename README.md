@@ -43,7 +43,7 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y \rightarrow F(Y) \rightarrow G(F(Y))~ \hat Y">
 
 ## Identity loss 
-For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. The weight for the identity mapping loss was 0.5$$\lambda$$ where $$\lambda$$ was the weight for cycle consistency loss. We set $$\lambda$$ = 10.:
+For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. The weight for the identity mapping loss was 0.5λ where λ was the weight for cycle consistency loss. We set λ = 10.
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
