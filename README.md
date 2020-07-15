@@ -96,7 +96,10 @@ Within these training procedures, there is a random square cropping of the origi
  - Cezanne
  - Ukiyou
  - Van Gogh
- 
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp3.png?raw=true) 
+
 #### Different generator architecture with PatchGAN
  - Resnet with norm_type = Batch Norm 
  - Resnet with norm_type = Instance Norm
