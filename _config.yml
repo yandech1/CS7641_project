@@ -1,3 +1,5 @@
 theme: jekyll-theme-leap-day
 title: Neural Style Transfer using Cycle-Consistent GAN
 description: Saeed Rashidi, Diwakar Singh, Bethany Tate, Decheng Yan
+show_downloads: true
+google_analytics:
