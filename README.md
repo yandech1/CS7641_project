@@ -1,5 +1,3 @@
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true)
-
 ## Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the
 mapping between an input image and an output image using a training set of aligned image pairs. [1]
@@ -9,6 +7,8 @@ the Gram matrix statistics of pre-trained deep features. [2] The primary focus o
 directly learn the mapping between two image collections (in an unsupervised way), rather than
 between two specific images, by trying to capture correspondences between higher-level appearance
 structures. [3]
+
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true)
 
 ## Dataset
 The dataset used for this image-to-image translation was sourced from a [UC Berkley CycleGAN Directory](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) by way of [TensorFlow](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo). It consists of 8,000+ images from 2 classes: French Impressionist paintings and modern photography both of landscapes and other natural scenes. The completeness of this dataset is attributed to the labeled training set of the two aligned classes that we then use to synthesize new images of nature in the style of Monet.
