@@ -114,20 +114,20 @@ In order to stabilize our training procedures, we contructed a loop that consist
 #### Collection Style Transfer
 We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. 
 <figure>
-  <div style="text-align:center"><img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli" style="width:80%"></div>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</figcaption>
 </figure>
  
  
 <figure>
-  <div style="text-align:center"><img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:80%"></div>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</figcaption>
 </figure>
 
 #### Photo generation from paintings
 For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. In Figure 5, we show results translating Monet’s paintings to photographs. This figure show results on paintings that were included in the training set, whereas for all other experiments in the paper, we only evaluate and show test set results. Because the training set does not include paired data, coming up with a plausible translation for a training set painting is a nontrivial task. Indeed, since Monet is no longer able to create new paintings, generalization to unseen, “test set”, paintings is not a pressing problem.
 <figure>
-  <div style="text-align:center"><img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%202/MonetToLandscape.png?raw=true" alt="Trulli" style="width:80%"></div>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%202/MonetToLandscape.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 4: Relatively successful results on mapping Monet’s paintings to a photographic style. </figcaption>
 </figure>
 
@@ -161,15 +161,19 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - Reflect
  - Zero
  - Symmetric
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type1.jpg?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type3.jpg?raw=true)
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type4_.jpg?raw=true) 
+ <figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" style="width:50%">
+  <figcaption>Figure 8: Effects of padding on mapping Monet's paintings to a photographic style.</figcaption>
+</figure>
+
  
 #### Different loss function
  - Binary Cross Entropy for Adversarial Loss
  - MSE for Adversarial Loss 
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true) 
+  <figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" style="width:60%">
+  <figcaption>Figure 8: Comparison of learning curve of Binary Squared Entropy and Mean Square loss function.</figcaption>
+</figure>
 
 ## Evaluation Metrics
 ## Analysis
