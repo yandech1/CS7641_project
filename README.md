@@ -132,10 +132,11 @@ For painting→photo, we find that it is helpful to introduce an additional loss
   <figcaption>Figure 4: Relatively successful results on mapping Monet’s paintings to a photographic style. </figcaption>
 </figure>
 
+
 #### Comparison with recent neural style techniques
 In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [] on photo stylization. For each row, we first use two representative artworks as the style images for []. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
 
-![]https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true
+![](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true)
 
 
 #### Different generator architecture with PatchGAN
