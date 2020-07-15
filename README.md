@@ -123,7 +123,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption> <center>Figure 6: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </center> </figcaption>
 </figure>
-![]()
+
 
 ## Experiments
 #### Different generator architecture with PatchGAN
@@ -134,14 +134,23 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - U-Net with norm_type = Batch Norm and PatchGAN with InstanceNorm 
  - U-Net with norm_type = Instance Norm
  
- ![](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%207/Figure5.jpg?raw=true)
+ <figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%207/Figure5.jpg?raw=true" alt="Trulli" style="width:80%">
+  <figcaption> <center>Figure 6: Qualitative comparison of different types of generator. BN stands for Batch Normalization and IN stands for Instance Normalization. </center> </figcaption>
+</figure>
+
  
 #### ResNet with default generator configuration and different discriminator
  - PixelGAN
  - PatchGAN (n_layers=1) 
  - PatchGAN (n_layers=3) 
  - PatchGAN (n_layers=5) = ImageGAN
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types1.png?raw=true)
+ 
+<figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%203/Discriminator_types1.png?raw=true" alt="Trulli" style="width:80%">
+  <figcaption> <center>Figure 7: Qualitative comparison of the effect of patch size variations on the generated paintings. </center> </figcaption>
+</figure>
+
 
 
 #### ResNet with default config but with different padding type
@@ -149,13 +158,21 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - Zero
  - Symmetric
 
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true)
+<figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" style="width:50%">
+  <figcaption> <center>Figure 8: Qualitative comparison of the effect of different padding type. </center> </figcaption>
+</figure>
 
- 
+
 #### Different loss function
  - Binary Cross Entropy for Adversarial Loss
  - MSE for Adversarial Loss 
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true) 
+
+<figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" style="width:50%">
+  <figcaption> <center>Figure 9: Qualitative comparison of the learning curve for different type of loss function. </center> </figcaption>
+</figure>
+
 
 # Evaluation Metrics
 # Analysis
