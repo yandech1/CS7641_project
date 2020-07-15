@@ -60,7 +60,8 @@ A defining feature of image-to-image translation problems is that they map a hig
 
 #### ResNet
 We use 9 residual blocks for 256 × 256 training images. The residual block design we used is from Gross and Wilber [], which differs from that of He et al [] in that the ReLU nonlinearity following the addition is removed. The naming convention we followed is same as in the Johnson et al.'s [Github repository](https://github.com/jcjohnson/fast-neural-style). Let c7s1-k denote a 7 × 7 Convolution-InstanceNorm-ReLU layer with k filters and stride 1. dk denotes a 3 × 3 Convolution-InstanceNorm-ReLU layer with k filters and stride 2. Reflection padding was used to reduce artifacts. Rk denotes a residual block that contains two 3 × 3 convolutional layers with the same number of filters on both layer. uk denotes a 3 × 3 fractional-strided-Convolution-InstanceNorm-ReLU layer with k filters and stride 1/2. Note that is is our default generator network. The network with 9 residual blocks consists of:  
-*c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c7s1-3*
+<span style="font-family:Papyrus; font-size:4em;">c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c7s1-3</span>
+
 
 #### U-Net
 The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map.[6] In other words, the U-net architecture provides low-level information with a sortof shortcut across the network.
