@@ -49,22 +49,22 @@ Summing the total previously explained loss functions lead to the following tota
 ## Implementation
 #### Generator Architecture
 ##### Resnet
-The architecture for the style transfer networks follows a residual network (resnet) block design having convolutional layers with skip connections that can be used when the input data and the output data have the same dimensions. When those dimensions are not the same, mapping is still possible by increasing the spatial reflection padding with zeroes in order to match the additional dimensions needed. [5] This is used to reduce artifacts around the borders of the generated image.
+The architecture for the style transfer networks follows a residual network (resnet) block design having convolutional layers with skip connections that can be used when the input data and the output data have the same dimensions. When those dimensions are not the same, mapping is still possible by increasing the spatial reflection padding with zeroes in order to match the additional dimensions needed. [5] This is used to reduce artifacts around the borders of the generated image. Figure below shows the architecture of Resnet. Note that is is our default generator network.
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/gen.png?raw=true)
 ##### U-Net
 The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map.[6] In other words, the U-net architecture provides low-level information with a sortof shortcut across the network.
 
 #### Discriminator Architecture
 ##### PatchGAN
-The aim with PatchGAN  is to use the generative model in order classify whether overlapping image patches are real or fake. Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator acts as a for of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs
+The aim with PatchGAN  is to use the generative model in order classify whether overlapping image patches are real or fake. Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator acts as a for of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs. Figure below shows the architecture of PatchGAN.
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc1.png?raw=true)
 
 ##### PixelGAN
-A 1x1 PixelGAN has small receptive fields because it is the most shawllow model. It is expected to encourage colorfulness while having no effect on spatial details, or sharpness. In image processing, this would be useful in color balancing and histogram matching of RGB images.
+A 1x1 PixelGAN has small receptive fields because it is the most shawllow model. It is expected to encourage colorfulness while having no effect on spatial details, or sharpness. In image processing, this would be useful in color balancing and histogram matching of RGB images. Figure below shows the architecture of this PixelGAN.
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc2.png?raw=true)
 
 ##### ImageGAN
-Full 286 x 286 ImageGAN requires more parameters and greater depth than the PatchGAN because it has a much larger receptive field. It is expected that the full-sized ImaeGAN will provide use with sharper image translations, but may be a lot harder to train our model.
+Full 286 x 286 ImageGAN requires more parameters and greater depth than the PatchGAN because it has a much larger receptive field. It is expected that the full-sized ImaeGAN will provide use with sharper image translations, but may be a lot harder to train our model. Figure below shows the architecture of ImageGAN.
 ![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/disc3.png?raw=true)
 
 #### Training Details
