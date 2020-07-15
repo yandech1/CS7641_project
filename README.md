@@ -47,15 +47,15 @@ For painting to photo, it is helpful to introduce an additional loss to encourag
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
-## Total Generator Loss
+#### Total Generator Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
 
-# Implementation
-## Network Architecture
+## Implementation
+### Network Architecture
 The architecture for our generative networks is adopted from Johnson et al. who have shown impressive results for neural style trasnfer. Similar to Johnson et al. [], we use instance normalization [] instead of batch normalization []. Both generator and discriminator use modeules of the form convolution-InstanceNormalizatio-ReLu []. The keys features of the network are detailed below: 
-### Generator Architecture 
+#### Generator Architecture 
 A defining feature of image-to-image translation problems is that they map a high resolution input grid to a high resolution output grid. In addition, for the problems we consider, the input and output differ in surface appearance, but both are renderings of the same underlying structure. Therefore, structure in the input is roughly aligned with structure in the output. The generator architecture is designed around these considerations.
 
 #### ResNet
