@@ -188,7 +188,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  
    <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" style="width:50%">
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" style="width:30%">
   <b> Figure 9: Qualitative comparison of the learning curve for different type of loss function.   </b><br> 
   <br><br>
    </p>
