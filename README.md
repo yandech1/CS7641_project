@@ -66,9 +66,9 @@ We use 9 residual blocks for 256 × 256 training images. The residual block desi
 The U-Net network architecture is adapted from []. The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map [6]. In other words, the U-net architecture provides low-level information with a sortof shortcut across the network. 
 
 Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. CD denotes a Convolution-BatchNorm-Dropout-ReLU layer. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
-**encoder:**
+** encoder: **
 C64-C128-C256-C512-C512-C512-C512-C512
-**decoder:**
+** decoder: **
 CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
 
 #### Discriminator Architecture
