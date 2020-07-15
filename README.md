@@ -81,15 +81,19 @@ Let Ck denote a 4 × 4 Convolution-InstanceNorm-LeakyReLU layer with k filters a
 
 #### PatchGAN
 Two different patch sizes are used in the experiments: 16x16 and 70x70. 
+
 The 16 x 16 discriminator architecture is: C64-C128
+
 The 70 x 70 discriminator architecture is: C64-C128-C256-C512 [Default Configuration unless specified otherwise]
 
 #### PixelGAN
 For the 1 x 1 patch size, the PatchGAN is referred as PixelGAN. 
+
 The PixelGAN architecture is: C64-C128 (In this special case, all convolutions are 1 × 1 spatial filters)
 
 #### ImageGAN
 The full 256 x 256 patch size is termed as ImageGAN. 
+
 The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
 
 
