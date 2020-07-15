@@ -130,7 +130,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
 <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli" style="width:80%">
   <b> Figure 5: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </b><br> 
   <br><br>
    </p>
