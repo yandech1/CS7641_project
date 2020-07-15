@@ -112,12 +112,10 @@ In order to stabilize our training procedures, we contructed a loop that consist
 
 ## Experiments and Results
 #### ResNet on different datasets  with default Generator and PatchGAN
- - Monet
- - Cezanne
- - Ukiyou
- - Van Gogh
- ![](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true)
- ![](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true)
+<figure>
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:100%">
+  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+</figure>
  
 #### Different generator architecture with PatchGAN
  - Resnet with norm_type = Batch Norm 
