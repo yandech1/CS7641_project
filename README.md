@@ -1,5 +1,4 @@
 ## Introduction
-->THIS TEXT IS IN THE CENTER!<-
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the mapping between an input image and an output image using a training set of aligned image pairs. [1] Neural Style Transfer is one way to perform image-to-image translation, which synthesizes a novel image by combining the content of one image with the style of another image-based on matching the Gram matrix statistics of pre-trained deep features [2]. Unlike recent work on "neural style transfer", we used CycleGAN [3] method which learns to mimic the style of an entire collection of artworks, rather than transferring the style of a single selecterd piece of art. Therefore, we can learn to generate photos in the style of, e.g., Van Gogh, rather than just in the style of Starry Night.
 
 ## Dataset
@@ -61,10 +60,16 @@ A defining feature of image-to-image translation problems is that they map a hig
 
 #### ResNet
 We use 9 residual blocks for 256 × 256 training images. The residual block design we used is from Gross and Wilber [], which differs from that of He et al [] in that the ReLU nonlinearity following the addition is removed. The naming convention we followed is same as in the Johnson et al.'s [Github repository](https://github.com/jcjohnson/fast-neural-style). Let c7s1-k denote a 7 × 7 Convolution-InstanceNorm-ReLU layer with k filters and stride 1. dk denotes a 3 × 3 Convolution-InstanceNorm-ReLU layer with k filters and stride 2. Reflection padding was used to reduce artifacts. Rk denotes a residual block that contains two 3 × 3 convolutional layers with the same number of filters on both layer. uk denotes a 3 × 3 fractional-strided-Convolution-InstanceNorm-ReLU layer with k filters and stride 1/2. Note that is is our default generator network. The network with 9 residual blocks consists of:  
--> c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c7s1-3 <-
+* c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c7s1-3 *
 
 #### U-Net
-The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map.[6] In other words, the U-net architecture provides low-level information with a sortof shortcut across the network.
+The U-Net network architecture is adapted from []. The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map [6]. In other words, the U-net architecture provides low-level information with a sortof shortcut across the network. 
+
+Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. CD denotes a Convolution-BatchNorm-Dropout-ReLU layer. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
+**encoder:**
+C64-C128-C256-C512-C512-C512-C512-C512
+**decoder:**
+CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
 
 #### Discriminator Architecture
 ##### PatchGAN
