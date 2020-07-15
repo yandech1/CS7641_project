@@ -7,7 +7,7 @@ In CycleGAN, there is no paired data to train on, so there is no guarantee that 
 ## Adversarial loss
 The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math=G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is expressed as:
  
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> [3]
 
 In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the:
 
@@ -183,10 +183,10 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
  
 #### Different loss function
- - Binary Cross Entropy for Adversarial Loss
- - MSE for Adversarial Loss 
- 
-   <figure>
+In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[(D(G(x))-1)^2]" and train the D to minimize > 
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[(D(y)-1)^2]+B\mathbb{E}_{x~p}_{data}(x)[D(G(x))^2]"> in order to reduce oscillation.
+
+<figure>
  <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" width="60%"/><br />
   <b> Figure 9: Qualitative comparison of the learning curve for different type of loss function.   </b><br> 
