@@ -18,7 +18,7 @@ and in fact is trained to maximize the:
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]"></p>
 
 while the discriminator 
-<p align="center"><img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=D_{Y}"></p> is trained to maximize the entire:
 
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
 
