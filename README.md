@@ -113,7 +113,7 @@ Within these training procedures, there is a random square cropping of the origi
  - Zero
  - Symmetric
  
- #### Different loss function
+#### Different loss function
  - Binary Cross Entropy for adversarial loss
  - MSE for adversarial loss 
 
