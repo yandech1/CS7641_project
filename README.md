@@ -11,42 +11,42 @@ The objective of adversarial losses for the mapping function <img src="https://r
 
 In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
 
 and in fact is trained to maximize the:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]"></p>
 
 while the discriminator 
-<img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">.
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
 
 On other hand, the same loss is applied for mapping from <img src="https://render.githubusercontent.com/render/math?math=F : Y \rightarrow X"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{X}">:
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]%2B\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]%2B\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]"></p>
 
 Therefore, the total Adverserial loss is expressed as:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)">+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)">+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)"></p>
 
 The goal is to generate images that are similar in style to the target domain while distinguising between the test data and the training data. 
 ## Cycle-Consistent loss 
 Adversarial losses alone do not guarantee that the content will preserved as it is mapped from the input to the target domain; therefore, cycle-consistent functions are implemented in order to prevent the learned mappings from contradicting each other. To calculate the cyclic loss, we measure the L1 distance (MAE) between the reconstructed image from the cycle and the truth image. This cycle consistency loss objective is: 
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]%2B\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]%2B\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"></p> 
 
 ![Cycle-Consistency Loss](https://miro.medium.com/max/1258/1*XhdrXh3UfCM4CecRrTwMCQ.png)
 
-<img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X \rightarrow G(X) \rightarrow F(G(X))~ \hat X">
-<img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y \rightarrow F(Y) \rightarrow G(F(Y))~ \hat Y">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\text{forward cycle consistency loss: } X \rightarrow G(X) \rightarrow F(G(X))~ \hat X"></p>
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\text{backward cycle consistency loss: } Y \rightarrow F(Y) \rightarrow G(F(Y))~ \hat Y"></p>
 ## Identity loss 
 For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. The weight for the identity mapping loss was 0.5$$\lambda$$ where $$\lambda$$ was the weight for cycle consistency loss. We set $$\lambda$$ = 10.:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]"></p>
 ## Total Generator Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
-<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)"></p>
 
 # Implementation
 ## Network Architecture
