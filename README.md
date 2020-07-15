@@ -110,6 +110,7 @@ In order to stabilize our training procedures, we contructed a loop that consist
  - Calculate the gradient using backpropogation
  - Apply the gradient to the optimizer
 
+
 ## Experiments and Results
 #### ResNet on different datasets  with default Generator and PatchGAN
 <figure>
@@ -117,15 +118,19 @@ In order to stabilize our training procedures, we contructed a loop that consist
   <figcaption>Figure 1: Collection style transfer I: we transfer input images into the artistic styles of Monet, Van Gogh, Cezanne, and Ukiyo-e.</figcaption>
 </figure>
  
+ 
 <figure>
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 2: Collection style transfer II: we transfer input images into the artistic styles of Monet, Van Gogh, Cezanne, and Ukiyo-e.</figcaption>
 </figure>
 
+
 <figure>
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%202/MonetToLandscape.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 3: Relatively successful results on mapping Monet’s paintings to a photographic style. </figcaption>
 </figure>
+
+
 
 #### Different generator architecture with PatchGAN
  - Resnet with norm_type = Batch Norm 
