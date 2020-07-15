@@ -220,7 +220,7 @@ header {
 
   .fork {
     position:fixed;
-    left:50%;
+    left:40%;
     margin-left:-325px;
     padding: 10px 12px;
     margin-top: 6px;
@@ -271,9 +271,9 @@ header {
 }
 
 section {
-  width:900px;
+  width:1100px;
   padding: 30px 30px 50px 30px;
-  margin: 20px 0;
+  margin: 200px -30p%;
   margin-top: 190px;
   position:relative;
   background: #fbfbfb;
@@ -290,8 +290,8 @@ nav {
   width: 230px;
   position: fixed;
   top: 220px;
-  left:50%;
-  margin-left:-580px;
+  left:48%;
+  margin-left:-720px;
   text-align: right;
 
   ul {
@@ -344,7 +344,7 @@ nav {
 footer {
   width:180px;
   position: fixed;
-  left:50%;
+  left:47%;
   margin-left:-530px;
   bottom:20px;
   text-align: right;
