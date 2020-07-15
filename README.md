@@ -56,7 +56,7 @@ Summing the total previously explained loss functions lead to the following tota
 #### Generator Architecture
 ##### Resnet
 The architecture for the style transfer networks follows a residual network (resnet) block design having convolutional layers with skip connections that can be used when the input data and the output data have the same dimensions. When those dimensions are not the same, mapping is still possible by increasing the spatial reflection padding with zeroes in order to match the additional dimensions needed. [5] This is used to reduce artifacts around the borders of the generated image. Figure below shows the architecture of Resnet. Note that is is our default generator network.
-![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/gen.png?raw=true)
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/images/gen.png?raw=true =100x20)
 #### U-Net
 The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map.[6] In other words, the U-net architecture provides low-level information with a sortof shortcut across the network.
 
