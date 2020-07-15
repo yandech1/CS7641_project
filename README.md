@@ -126,7 +126,7 @@ We train our Resnet generator and PatchGAN (70 x 70) model on landcape photograp
 </figure>
 
 #### Photo generation from paintings
-For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. The effect of this identity mapping loss are shown in Figure 4.
+For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. In Figure 5, we show results translating Monet’s paintings to photographs. This figure show results on paintings that were included in the training set, whereas for all other experiments in the paper, we only evaluate and show test set results. Because the training set does not include paired data, coming up with a plausible translation for a training set painting is a nontrivial task. Indeed, since Monet is no longer able to create new paintings, generalization to unseen, “test set”, paintings is not a pressing problem.
 <figure>
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%202/MonetToLandscape.png?raw=true" alt="Trulli" style="width:80%">
   <figcaption>Figure 4: Relatively successful results on mapping Monet’s paintings to a photographic style. </figcaption>
@@ -146,6 +146,8 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
  - U-Net and PatchGAN with norm_type = Batch Norm
  - U-Net with norm_type = Batch Norm and PatchGAN with InstanceNorm 
  - U-Net with norm_type = Instance Norm
+ 
+ ![](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%207/Figure5.jpg?raw=true)
  
 #### ResNet with default generator configuration and different discriminator
  - PixelGAN
