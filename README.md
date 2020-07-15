@@ -1,3 +1,5 @@
+![alt text](https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true)
+
 ## Introduction
 Image-to-image translation is a class of vision and graphics problems where the goal is to learn the
 mapping between an input image and an output image using a training set of aligned image pairs. [1]
