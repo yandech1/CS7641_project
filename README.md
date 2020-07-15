@@ -32,8 +32,9 @@ Therefore, the total Adverserial loss is expressed as:
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)">+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)">
 
 The goal is to generate images that are similar in style to the target domain while distinguising between the test data and the training data. 
+
 #### Cycle-Consistent loss 
-Adversarial losses alone do not guarantee that the content will preserved as it is mapped from the input to the target domain; therefore, cycle-consistent functions are implemented in order to prevent the learned mappings from contradicting each other. This cycle consistency loss objective is: 
+Adversarial losses alone do not guarantee that the content will preserved as it is mapped from the input to the target domain; therefore, cycle-consistent functions are implemented in order to prevent the learned mappings from contradicting each other. To calculate the cyclic loss, we measure the L1 distance (MAE) between the reconstructed image from the cycle and the truth image. This cycle consistency loss objective is: 
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{cyc}(G, F)=\mathbb{E}_{x~p}_{data}(x)[\|F(G(x))-x\|_{1}]%2B\mathbb{E}_{y~p}_{data}(y)[\|G(F(y))-y\|_{1}]"> [3]  
 
@@ -47,15 +48,16 @@ For painting to photo, it is helpful to introduce an additional loss to encourag
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}_{y~p}_{data}(y)[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x~p}_{data}(x)[\|F(x)-x\|_{1}]">
 
-#### Total Generator Loss
+## Total Generator Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)">
 
-## Implementation
-### Network Architecture
+# Implementation
+## Network Architecture
 The architecture for our generative networks is adopted from Johnson et al. who have shown impressive results for neural style trasnfer. Similar to Johnson et al. [], we use instance normalization [] instead of batch normalization []. Both generator and discriminator use modeules of the form convolution-InstanceNormalizatio-ReLu []. The keys features of the network are detailed below: 
-#### Generator Architecture 
+
+### Generator Architecture 
 A defining feature of image-to-image translation problems is that they map a high resolution input grid to a high resolution output grid. In addition, for the problems we consider, the input and output differ in surface appearance, but both are renderings of the same underlying structure. Therefore, structure in the input is roughly aligned with structure in the output. The generator architecture is designed around these considerations.
 
 #### ResNet
@@ -100,7 +102,7 @@ The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
 ## Training Details
 Random jitter was applied by resizing the 256×256 input images to 286 × 286 using Nearest Neighbor resizing method and then randomly cropping back to size 256 × 256. 
 
-The networks are trained from scratch, with a learning rate of 0.0002. In practice, we divide the objective by 2 while optimizing D, which slows down the rate at which D learns, relative to the rate of G. We keep the same learning rate for the first 100 epochs and linearly decay the rate to zero over the next 100 epochs. Weights were initialized from a Gaussian distribution with mean 0 and standard deviation 0.02.
+For all the experiments, we set λ = 10. The Adam optimizaer [] is used for the training with a batch size of 1. The networks are trained from scratch, with a learning rate of 0.0002. In practice, we divide the objective by 2 while optimizing D, which slows down the rate at which D learns, relative to the rate of G. We keep the same learning rate for the first 100 epochs and linearly decay the rate to zero over the next 100 epochs. Weights were initialized from a Gaussian distribution with mean 0 and standard deviation 0.02.
 
 In order to stabilize our training procedures, we contructed a loop that consists of four basic steps:
  - Get the predictions
