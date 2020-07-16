@@ -84,6 +84,7 @@ In order to stabilize our training procedures, we contructed a loop that consist
  - Calculate the loss
  - Calculate the gradient using backpropogation
  - Apply the gradient to the optimizer 
+
 ## 5. Experiments and Results
 ### 5.1 Collection Style Transfer
 We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. 
