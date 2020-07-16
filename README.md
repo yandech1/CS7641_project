@@ -27,7 +27,7 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <figure>
  <p align="center">
   <img src="https://miro.medium.com/max/1258/1*XhdrXh3UfCM4CecRrTwMCQ.png" width="60%"/><br />
-  <b> Figure 1: The CycleGAN model [3] contains two mapping functions G: X → Y and F: Y → X, and associated adversarial discriminators DY andDX.DY encouragesGtotranslateXintooutputsindistinguishablefromdomainY,andviceversa for <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=F">.</b><br> 
+  <b> Figure 1: The CycleGAN model [3] contains two mapping functions <img src="https://render.githubusercontent.com/render/math?math=G:X\rightarrow Y"> and <img src="https://render.githubusercontent.com/render/math?math=F:Y \rightarrow X">, and associated adversarial discriminators <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=D_Y">. <img src="https://render.githubusercontent.com/render/math?math=D_Y"> encourages <img src="https://render.githubusercontent.com/render/math?math=G"> to translate <img src="https://render.githubusercontent.com/render/math?math=X"> in to outputs indistinguishable from domain <img src="https://render.githubusercontent.com/render/math?math=Y">,and vice versa for <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=F">.</b><br> 
   <br><br>
    </p>
 </figure>
