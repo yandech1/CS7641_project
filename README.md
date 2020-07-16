@@ -196,3 +196,4 @@ In this project, we showed the capabilites of CycleGAN approach for image to pai
 ## 8. Contributions
 - Decheng Yan: Weekly meeting, discussion of project schedule and idea; Architechture comparison of generator network (unet/ rasnet, batch-normalization/ instance-normalization); Model training to each generator network type; Review of report.  
 - Bethany Tate: Model training with default generator configuration and different architecture for discriminator network; Build and configuration of Github Page; Report writing and editing
+- Saeed Rashidi: Model training with default configuration on Ukiyoe and Van Gogh datasets; Model training with symmetric padding for Resnet generator; Model training with Binary Cross Entropy for adversarial loss; Report writing for loss function and conclusion sections.
