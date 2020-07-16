@@ -87,7 +87,8 @@ In order to stabilize our training procedures, we contructed a loop that consist
 
 ## 5. Experiments and Results
 #### 5.1 Collection Style Transfer
-We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. 
+We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. Additional results can be found in our [GitHub Repository](https://github.com/bethanystate/CS7641_project/tree/master/Results/Figure%201).
+
 <figure>
   <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli"  width="75%"/><br />
@@ -106,7 +107,8 @@ We train our Resnet generator and PatchGAN (70 x 70) model on landcape photograp
 </figure>
 
 #### 5.2 Photo generation from paintings
-For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [11] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. In Figure 5, we show results translating Monet’s paintings to photographs. This figure show results on paintings that were included in the training set, whereas for all other experiments in the paper, we only evaluate and show test set results. Because the training set does not include paired data, coming up with a plausible translation for a training set painting is a nontrivial task. Indeed, since Monet is no longer able to create new paintings, generalization to unseen, “test set”, paintings is not a pressing problem.
+For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [11] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. In Figure 5, we show results translating Monet’s paintings to photographs. This figure show results on paintings that were included in the training set, whereas for all other experiments in the paper, we only evaluate and show test set results. Because the training set does not include paired data, coming up with a plausible translation for a training set painting is a nontrivial task. Indeed, since Monet is no longer able to create new paintings, generalization to unseen, “test set”, paintings is not a pressing problem. 
+
 <figure>
   <p align="center">
   <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%202/MonetToLandscape.png?raw=true" alt="Trulli"  width="80%"/><br />
@@ -116,7 +118,7 @@ For painting→photo, we find that it is helpful to introduce an additional loss
 </figure>
 
 #### 5.3 Comparison with recent neural style techniques
-In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [] on photo stylization. For each row, we first use two representative artworks as the style images for []. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
+In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [2] on photo stylization. For each row, we first use two representative artworks as the style images for [2]. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
 
 <figure>
  <p align="center">
@@ -134,7 +136,7 @@ Four different types of generator models are tested, and the results can be visu
  - U-Net and PatchGAN with norm_type = Batch Norm
  - U-Net with norm_type = Instance Norm
 
-From the visual inspection, it is clear that ResNet with Instance Normalization performs way better than the other architecture. A simple observation is that the result of stylization should not, in general, depend on the contrast of the content image. In fact, the neural style transfer is used to transfer elements from a style image to the content image such that the contrast of the stylized image is similar to the contrast of the style image. Thus, the generator network should discard contrast information in the content image. This is achieved replace batch normalization with instance normalization everywhere in the generator network G. The normalization process allows us to remove instance-specific contrast information from the content image, which simplifies generation. In practice, this results in vastly improved generated images.
+From the visual inspection, it is clear that ResNet with Instance Normalization performs way better than the other architecture. A simple observation is that the result of stylization should not, in general, depend on the contrast of the content image. In fact, the neural style transfer is used to transfer elements from a style image to the content image such that the contrast of the stylized image is similar to the contrast of the style image. Thus, the generator network should discard contrast information in the content image. This is achieved replace batch normalization with instance normalization everywhere in the generator network G. The normalization process allows us to remove instance-specific contrast information from the content image, which simplifies generation. In practice, this results in vastly improved generated images. Additional results can be found in our [GitHub Repository](https://github.com/bethanystate/CS7641_project/tree/master/Results/Figure%207).
  
  <figure>
  <p align="center">
@@ -145,7 +147,7 @@ From the visual inspection, it is clear that ResNet with Instance Normalization 
 </figure>
 
 ##### 5.4.2 ResNet with default generator configuration and different discriminator
-We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”. Figure 7 shows the qualitative results of this analysis. For PixelGAN, it can be seen that the results of stylization, in general, depend too much on the contrast of the content image. Also, when inspected closely, one can find the grid lines all over the image. For PatchGAN with a grid size of 16x16, one can see the style of Monet is transferred to the content image such that the contrast of the stylized image is similar to the contrast of whole domain X which is Monet’s paintings. However, it leads to some tiling artifacts at the border of the generated images. The 70 x 70 patchGAN forces output that is sharp, even if incorrect, in both the spatial and spectral dimensions. Scaling beyond this, to the full 286 × 286 ImageGAN, does not appear to improve the visual quality of the results. In fact, the pictures generated are quite warm and they depend too much on the contrast of the input image. Also, the style content in the image is quite less profound compared to PatchGANs. This may be because the ImageGAN has many more parameters and greater depth than the 70 × 70 PatchGAN and may be harder to train. Hence, unless specified, all experiments use 70 x 70 PatchGANs.
+We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”. Figure 7 shows the qualitative results of this analysis. For PixelGAN, it can be seen that the results of stylization, in general, depend too much on the contrast of the content image. Also, when inspected closely, one can find the grid lines all over the image. For PatchGAN with a grid size of 16x16, one can see the style of Monet is transferred to the content image such that the contrast of the stylized image is similar to the contrast of whole domain X which is Monet’s paintings. However, it leads to some tiling artifacts at the border of the generated images. The 70 x 70 patchGAN forces output that is sharp, even if incorrect, in both the spatial and spectral dimensions. Scaling beyond this, to the full 286 × 286 ImageGAN, does not appear to improve the visual quality of the results. In fact, the pictures generated are quite warm and they depend too much on the contrast of the input image. Also, the style content in the image is quite less profound compared to PatchGANs. This may be because the ImageGAN has many more parameters and greater depth than the 70 × 70 PatchGAN and may be harder to train. Hence, unless specified, all experiments use 70 x 70 PatchGANs. Additional results can be found in our [GitHub Repository](https://github.com/bethanystate/CS7641_project/tree/master/Results/Figure%203).
  
   <figure>
  <p align="center">
@@ -156,7 +158,7 @@ We test the effect of varying the patch size N of our discriminator receptive fi
 </figure>
 
 ##### 5.4.3 ResNet with default config but with different padding type
-We also tested the effects of padding on the generated images. This spatial padding is added to the beginning of the network. The results for reflect, zero, and symmetric padding is shown in Figure 8. Qualitatively, zero, and reflect paddings have visually similar images. The only difference is that images generated using zero paddings are quite sharp compared to the one generated using reflect padding. On the other hand, the symmetric padding generates the sharpest images amongst the three, however, it looks like it fails to properly capture the style of the artist in the content images. In conclusion, reflect paddings seems to work the best.
+We also tested the effects of padding on the generated images. This spatial padding is added to the beginning of the network. The results for reflect, zero, and symmetric padding is shown in Figure 8. Qualitatively, zero, and reflect paddings have visually similar images. The only difference is that images generated using zero paddings are quite sharp compared to the one generated using reflect padding. On the other hand, the symmetric padding generates the sharpest images amongst the three, however, it looks like it fails to properly capture the style of the artist in the content images. In conclusion, reflect paddings seems to work the best. Additional results can be found in our [GitHub Repository](https://github.com/bethanystate/CS7641_project/tree/master/Results/Figure%206).
  
  <figure>
  <p align="center">
