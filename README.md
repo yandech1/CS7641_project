@@ -9,18 +9,7 @@ The objective of adversarial losses for the mapping function <img src="https://r
  
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D_{Y}, X, Y)=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
 
-In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the:
-
-<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
-
-and in fact is trained to maximize the:
-
-<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]"></p>
-
-while the discriminator 
-<img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire:
-
-<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"></p>
+In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]"> and in fact is trained to maximize the <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[D_{y}(G(x)]"> while the discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[\logD_{y}(y)]%2B\mathbb{E}_{x~p}_{data}(x)[\log(1-D_{y}(G(x))]">.
 
 On other hand, the same loss is applied for mapping from <img src="https://render.githubusercontent.com/render/math?math=F : Y \rightarrow X"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{X}">:
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]%2B\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]"></p>
