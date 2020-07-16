@@ -120,7 +120,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
 <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli"  width="90%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli"  width="100%"/><br />
   <b> Figure 5: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </b><br> 
   <br><br>
    </p>
@@ -171,7 +171,7 @@ In the beggining, we used Binary Cross Entropy for adversarial losses to both ma
 
 <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" width="50%" height="50%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%205/training_loss.jpg?raw=true" alt="Trulli" width="40%" height="40%"/><br />
   <b> Figure 9: Qualitative comparison of the learning curve for different type of loss function.   </b><br> 
   <br><br>
    </p>
