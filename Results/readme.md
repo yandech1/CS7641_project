@@ -10,4 +10,4 @@ Figure 5: Learning Curve of different loss function
 
 Figure 6: Different Padding Types
 
-Figure 7: Different Architectures
+Figure 7: Different Generator Architecture
