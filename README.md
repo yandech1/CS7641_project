@@ -62,11 +62,12 @@ c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128,
 #### U-Net
 The U-Net network architecture is adapted from [9]. The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map. In other words, the U-net architecture provides low-level information with a sortof shortcut across the network. 
 
-Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. CD denotes a Convolution-BatchNorm-Dropout-ReLU layer. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
+Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
 
 **encoder:** C64-C128-C256-C512-C512-C512-C512-C512. 
 
-**decoder:** CD512-CD1024-CD1024-C1024-C1024-C512-C256-C128
+**decoder:** C512-C1024-C1024-C1024-C1024-C512-C256-C128
+
 ### Discriminator Architecture
 The discrimiator architecture is designed to model high-frequency structure and relying on L1 term in the error to force low-frequency correctness. In order to model high-frequencies, it is sufficient to restrict our attention to the structure in local image patches. Therefore, we the discriminator architecture is termed as PatchGAN – that only penalizes structure at the scale of patches. This discriminator tries to classify if each N × N patch in an image is real or fake. 
 
