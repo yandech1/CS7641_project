@@ -31,14 +31,17 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
   <br><br>
    </p>
 </figure>
+
 ### 3.3 Identity loss 
 For painting to photo, it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, Identity loss regularizes the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. The weight for the identity mapping loss was 0.5<img src="https://render.githubusercontent.com/render/math?math=\lambda"> where <img src="https://render.githubusercontent.com/render/math?math=\lambda"> was the weight for cycle consistency loss.
 
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{identity}(G, F)=\mathbb{E}{y\sim p_{data(y)}}[\|G(y)-y\|_{1}]%2B\mathbb{E}_{x\sim p_{data(x)}}[\|F(x)-x\|_{1}]"></p>
+
 ### 3.4 Total Loss
 Summing the total previously explained loss functions lead to the following total losss function:
 
 <p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)%2B\mathcal{L}_{GAN}(G, D_{Y}, X, Y)%2B\mathcal{L}_{cyc}(G, F)%2B\mathcal{L}_{identity}(G, F)"></p>
+
 ## 4. Implementation
 ### 4.1 Network Architecture
 The architecture for our generative networks is adopted from Johnson et al. who have shown impressive results for neural style trasnfer. Similar to Johnson et al. [4], we use instance normalization [5] instead of batch normalization [6]. Both generator and discriminator use modeules of the form convolution-InstanceNormalizatio-ReLu. The keys features of the network are detailed below: 
@@ -100,6 +103,7 @@ We train our Resnet generator and PatchGAN (70 x 70) model on landcape photograp
   <br><br>
   </p>
 </figure>
+
 ### 5.2 Photo generation from paintings
 For painting→photo, we find that it is helpful to introduce an additional loss to encourage the mapping to preserve color composition between the input and output. In particular, we adopt the technique of Taigman et al. [11] and regularize the generator to be near an identity mapping when real samples of the target domain are provided as the input to the generator. In Figure 5, we show results translating Monet’s paintings to photographs. This figure show results on paintings that were included in the training set, whereas for all other experiments in the paper, we only evaluate and show test set results. Because the training set does not include paired data, coming up with a plausible translation for a training set painting is a nontrivial task. Indeed, since Monet is no longer able to create new paintings, generalization to unseen, “test set”, paintings is not a pressing problem.
 <figure>
@@ -109,6 +113,7 @@ For painting→photo, we find that it is helpful to introduce an additional loss
    <br><br>
    </p>
 </figure>
+
 ### 5.3 Comparison with recent neural style techniques
 In Figure 5, we compare the neural style transfer using CycleGAN results with neural style transfer [] on photo stylization. For each row, we first use two representative artworks as the style images for []. CycleGAN, on the other hand, can produce photos in the style of entire collection. Also, it succeeds to generate natural-looking results, similar to the target domain.
 
@@ -119,6 +124,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
   <br><br>
    </p>
 </figure>
+
 ### 5.4 Experiments
 #### 5.4.1 Different generator architecture with PatchGAN
  - Resnet with norm_type = Batch Norm 
@@ -135,6 +141,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
   <br><br>
    </p>
 </figure>
+
 #### 5.4.2 ResNet with default generator configuration and different discriminator
 We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”.
  
@@ -145,6 +152,7 @@ We test the effect of varying the patch size N of our discriminator receptive fi
   <br><br>
    </p>
 </figure>
+
 #### 5.4.3 ResNet with default config but with different padding type
  - Reflect
  - Zero
@@ -157,6 +165,7 @@ We test the effect of varying the patch size N of our discriminator receptive fi
   <br><br>
    </p>
 </figure> 
+
 #### 5.4.4 Different loss function
 In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x\sim p_{data(x)}}[(D(G(x))-1)^2]"> and train the D to minimize 
 <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y\sim p_{data(y)}}[(D(y)-1)^2]+\mathbb{E}_{x\sim p_{data(x)}}[D(G(x))^2]"> in order to reduce oscillation.
@@ -168,6 +177,7 @@ In the beggining, we used Binary Cross Entropy for adversarial losses to both ma
   <br><br>
    </p>
 </figure>
+
 ## 6. Conclusion and Future Work
 ## 7. References
 - [1] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1125–1134, 2017.
