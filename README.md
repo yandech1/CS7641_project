@@ -180,7 +180,7 @@ In the beggining, we used Binary Cross Entropy for adversarial losses to both ma
 </figure>
 
 ## 6. Conclusion
-In this project, we showed the capabilites of CycleGAN approach for image to painting domain translation and tried different architectures and configurations for optimal results.
+In this project, we showed the capabilites of CycleGAN approach for image to painting domain translation and tried different architectures and configurations for optimal results. More specifcally, we tried (i) different generator network including Resnet and U-net, (ii) different discriminator networks such as Pixel-GAN and Patch-GAN, (iii) different padding types for the Resnet generator network including reflect, zero and symmetric, and (iv) different losss functions such as Binary Cross Entropy for adversarial loss and MSE. We trained these different configurations on different datasets and presented the comparison results in this report.
 ## 7. References
 - [1] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1125–1134, 2017.
 - [2] L. A. Gatys, A. S. Ecker, and M. Bethge, “A neural algorithm of artistic style,” arXiv pre printarXiv:1508.06576, 2015.
