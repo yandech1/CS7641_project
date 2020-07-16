@@ -193,3 +193,4 @@ In this project, we showed the capabilites of CycleGAN approach for image to pai
 - [11] Taigman, Yaniv, Adam Polyak, and Lior Wolf. "Unsupervised cross-domain image generation." arXiv preprint arXiv:1611.02200 (2016).
 
 ## 8. Contributions
+Decheng Yan: Weekly meeting, discussion of project schedule and idea; Architechture comparison of generator network (unet/ rasnet, batch-normalization/ instance-normalization); Model training to each generator network type; Review of report.  
