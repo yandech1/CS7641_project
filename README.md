@@ -128,12 +128,12 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
 #### 5.4 Experiments
 ##### 5.4.1 Different generator architecture with PatchGAN
+Four different types of generator models are tested, and the results can be visualized in Figure 6.
  - Resnet with norm_type = Batch Norm 
  - Resnet with norm_type = Instance Norm
- - Resnet with type_net = ”non-residual”
  - U-Net and PatchGAN with norm_type = Batch Norm
- - U-Net with norm_type = Batch Norm and PatchGAN with InstanceNorm 
  - U-Net with norm_type = Instance Norm
+From the visual inspection, it is clear that ResNet with Instance Normalization performs way better than the other architecture. A simple observation is that the result of stylization should not, in general, depend on the contrast of the content image. In fact, the neural style transfer is used to transfer elements from a style image to the content image such that the contrast of the stylized image is similar to the contrast of the style image. Thus, the generator network should discard contrast information in the content image. This is achieved replace batch normalization with instance normalization everywhere in the generator network G. The normalization process allows us to remove instance-specific contrast information from the content image, which simplifies generation. In practice, this results in vastly improved generated images.
  
  <figure>
  <p align="center">
@@ -144,7 +144,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 </figure>
 
 ##### 5.4.2 ResNet with default generator configuration and different discriminator
-We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”.
+We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”. Figure 7 shows the qualitative results of this analysis. For PixelGAN, it can be seen that the results of stylization, in general, depend too much on the contrast of the content image. Also, when inspected closely, one can find the grid lines all over the image. For PatchGAN with a grid size of 16x16, one can see the style of the Monet is transferred to the content image such that the contrast of the stylized image is similar to the contrast of whole domain X which is Monet’s paintings. However, it leads to some artifacts in the generated images. The 70 x 70 patchGAN forces output that is sharp, even if incorrect, in both the spatial and spectral dimensions. Scaling beyond this, to the full 286 × 286 ImageGAN, does not appear to improve the visual quality of the results. In fact, the pictures generated are quite warm and they depend too much on the contrast of the input image. Also, the style content in the image is quite less profound compared to PatchGANs. This may be because the ImageGAN has many more parameters and greater depth than the 70 × 70 PatchGAN and may be harder to train. Hence, unless specified, all experiments use 70 x 70 PatchGANs.
  
   <figure>
  <p align="center">
@@ -155,9 +155,7 @@ We test the effect of varying the patch size N of our discriminator receptive fi
 </figure>
 
 ##### 5.4.3 ResNet with default config but with different padding type
- - Reflect
- - Zero
- - Symmetric
+We also tested the effects of padding on the generated images. This spatial padding is added to the beginning of the network. The results for reflect, zero, and symmetric padding is shown in Figure 8. Qualitatively, zero, and reflect paddings have visually similar images. The only difference is that images generated using zero paddings are quite sharp compared to the one generated using reflect padding. On the other hand, the symmetric padding generates the sharpest images amongst the three, however, it looks like it fails to properly capture the style of the artist in the content images. In conclusion, reflect paddings seems to work the best.
  
  <figure>
  <p align="center">
