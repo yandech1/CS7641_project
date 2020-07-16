@@ -47,11 +47,11 @@ Summing the total previously explained loss functions lead to the following tota
 The architecture for our generative networks is adopted from Johnson et al. who have shown impressive results for neural style trasnfer. Similar to Johnson et al. [4], we use instance normalization [5] instead of batch normalization [6]. Both generator and discriminator use modeules of the form convolution-InstanceNormalizatio-ReLu. The keys features of the network are detailed below: 
 ##### 4.1.1 Generator Architecture 
 A defining feature of image-to-image translation problems is that they map a high resolution input grid to a high resolution output grid. In addition, for the problems we consider, the input and output differ in surface appearance, but both are renderings of the same underlying structure. Therefore, structure in the input is roughly aligned with structure in the output. The generator architecture is designed around these considerations.
-###### 4.1.1.1 ResNet
+##### 4.1.1.1 ResNet
 We use 9 residual blocks for 256 × 256 training images. The residual block design we used is from Gross and Wilber [7], which differs from that of He et al [8] in that the ReLU nonlinearity following the addition is removed. The naming convention we followed is same as in the Johnson et al.'s [Github repository](https://github.com/jcjohnson/fast-neural-style). Let c7s1-k denote a 7 × 7 Convolution-InstanceNorm-ReLU layer with k filters and stride 1. dk denotes a 3 × 3 Convolution-InstanceNorm-ReLU layer with k filters and stride 2. Reflection padding was used to reduce artifacts. Rk denotes a residual block that contains two 3 × 3 convolutional layers with the same number of filters on both layer. uk denotes a 3 × 3 fractional-strided-Convolution-InstanceNorm-ReLU layer with k filters and stride 1/2. Note that is is our default generator network. The network with 9 residual blocks consists of:  
 
 c7s1-64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c7s1-3
-###### 4.1.1.2 U-Net
+##### 4.1.1.2 U-Net
 The U-Net network architecture is adapted from [9]. The network architecture consists of two 3x3 convolutions (unpadded convolutions), each followed by instance normalization and a rectified linear unit (ReLU) and a pooling operation with stride 2 for downsampling an input. During upsampling, a 3 × 3 convolution with no padding reduces the size of a feature map by 1 pixel on each side, so in this case the identity connection performs a center crop on the input feature map. In other words, the U-net architecture provides low-level information with a sortof shortcut across the network. 
 
 Let Ck denote a Convolution-BatchNorm-ReLU layer with k filters. All convolutions are 4 × 4 spatial filters applied with stride 2. Convolutions in the encoder and in the discriminator are downsampled by a factor of 2, whereas in the decoder they are upsampled by a factor of 2. The U-Net architecture consists of:
@@ -65,14 +65,14 @@ The discrimiator architecture is designed to model high-frequency structure and 
 Because this discriminator requires fewer parameters, it works well with arbitrarily large images by running the discriminator convolutionally across an image and averaging the responses. This discrimiator can be understood as a form of texture or style loss, and unless noted otherwise, our experiments use 70 x 70 PatchGANs. 
 
 Let Ck denote a 4 × 4 Convolution-InstanceNorm-LeakyReLU layer with k filters and stride 2. After the last layer, a convolution is applied to produce a 1-dimensional output. For the first C64 layer, InstanceNormalization is not applied. The activation function used is leaky ReLUs with a slope of 0.2. 
-###### 4.1.2.1 PatchGAN
+##### 4.1.2.1 PatchGAN
 Two different patch sizes are used in the experiments: 16x16 and 70x70. 
 The 16 x 16 discriminator architecture is: C64-C128
 The 70 x 70 discriminator architecture is: C64-C128-C256-C512 [Default Configuration unless specified otherwise]
-###### 4.1.2.2 PixelGAN
+##### 4.1.2.2 PixelGAN
 For the 1 x 1 patch size, the PatchGAN is referred as PixelGAN. 
 The PixelGAN architecture is: C64-C128 (In this special case, all convolutions are 1 × 1 spatial filters)
-###### 4.1.2.3 ImageGAN
+##### 4.1.2.3 ImageGAN
 The full 256 x 256 patch size is termed as ImageGAN. The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
 #### 4.2 Training Details
 Random jitter was applied by resizing the 256×256 input images to 286 × 286 using Nearest Neighbor resizing method and then randomly cropping back to size 256 × 256. 
