@@ -179,7 +179,8 @@ In the beggining, we used Binary Cross Entropy for adversarial losses to both ma
    </p>
 </figure>
 
-## 6. Conclusion and Future Work
+## 6. Conclusion
+In this project, we showed the capabilites of CycleGAN approach for image to painting domain translation and tried different architectures and configurations for optimal results.
 ## 7. References
 - [1] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1125–1134, 2017.
 - [2] L. A. Gatys, A. S. Ecker, and M. Bethge, “A neural algorithm of artistic style,” arXiv pre printarXiv:1508.06576, 2015.
