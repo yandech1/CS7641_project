@@ -184,7 +184,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
  
 #### Different loss function
-In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[(D(G(x))-1)^2]" and train the D to minimize 
+In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[(D(G(x))-1)^2]"> and train the D to minimize 
 <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[(D(y)-1)^2]+B\mathbb{E}_{x~p}_{data}(x)[D(G(x))^2]"> in order to reduce oscillation.
 
 <figure>
@@ -199,11 +199,17 @@ In the beggining, we used Binary Cross Entropy for adversarial losses to both ma
 # Conclusion and Future Work
 
 # References
- - [1] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1125–1134, 2017.
- - [2] L. A. Gatys, A. S. Ecker, and M. Bethge, “A neural algorithm of artistic style,” arXiv pre printarXiv:1508.06576, 2015.
- - [3] J.-Y. Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle-consistent adversarial networks,” in Proceedings of the IEEE international conference on computer vision, pp. 2223–2232, 2017.
- - [4] I. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. Courville, and Y. Bengio, “Generative adversarial nets,” in Advances in neural information processing systems, pp. 2672–2680, 2014.
- - [5] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, 2016, pp. 770-778
- - [6] U-Net: O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional Networks for Biomedical Image Segmentation," in Medical Image Computing and Computer-Assisted Intervention (MICCAI), pp. 234-241, 2015.
+- [1] P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, “Image-to-image translation with conditional adversarial networks,” in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 1125–1134, 2017.
+- [2] L. A. Gatys, A. S. Ecker, and M. Bethge, “A neural algorithm of artistic style,” arXiv pre printarXiv:1508.06576, 2015.
+- [3] J.-Y. Zhu, T. Park, P. Isola, and A. A. Efros, “Unpaired image-to-image translation using cycle-consistent adversarial networks,” in Proceedings of the IEEE international conference on computer vision, pp. 2223–2232, 2017.
+- [4] Johnson, Justin, Alexandre Alahi, and Li Fei-Fei. "Perceptual losses for real-time style transfer and super-resolution." In European conference on computer vision, pp. 694-711. Springer, Cham, 2016.
+- [5] Ioffe, Sergey, and Christian Szegedy. "Batch normalization: Accelerating deep network training by reducing internal covariate shift." arXiv preprint arXiv:1502.03167 (2015).
+- [6] Ulyanov, Dmitry, Andrea Vedaldi, and Victor Lempitsky. "Instance normalization: The missing ingredient for fast stylization." arXiv preprint arXiv:1607.08022 (2016).
+- [7] Gross, Sam, and Michael Wilber. "Training and investigating residual nets." Facebook AI Research 6 (2016).
+- [8] K. He, X. Zhang, S. Ren and J. Sun, "Deep Residual Learning for Image Recognition," 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Las Vegas, NV, 2016, pp. 770-778
+- [9] U-Net: O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional Networks for Biomedical Image Segmentation," in Medical Image Computing and Computer-Assisted Intervention (MICCAI), pp. 234-241, 2015.
+- [10] Kingma, Diederik P., and Jimmy Ba. "Adam: A method for stochastic optimization." arXiv preprint arXiv:1412.6980 (2014).
+- [11] Taigman, Yaniv, Adam Polyak, and Lior Wolf. "Unsupervised cross-domain image generation." arXiv preprint arXiv:1611.02200 (2016).
+ 
 
 # Contributions
