@@ -12,7 +12,7 @@ The objective of adversarial losses for the mapping function <img src="https://r
 In the above formula, generator <img src="https://render.githubusercontent.com/render/math?math=G"> tries to minimize the <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x\sim p_{data(x)}}[\log(1-D_{y}(G(x))]"> and in fact is trained to maximize the <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x\sim p_{data(x)}}[D_{y}(G(x)]"> while the discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is trained to maximize the entire <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y\sim p_{data(y)}}[\logD_{y}(y)]%2B\mathbb{E}_{x\sim p_{data(x)}}[\log(1-D_{y}(G(x))]">.
 
 On other hand, the same loss is applied for mapping from <img src="https://render.githubusercontent.com/render/math?math=F : Y \rightarrow X"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{X}">:
-<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x~p}_{data}(x)[\logD_{x}(x)]%2B\mathbb{E}_{y~p}_{data}(y)[\log(1-D_{x}(F(y))]"></p>
+<p align="center"><img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(F, D_{X}, Y, X)=\mathbb{E}_{x\sim p_{data(x)}}[\logD_{x}(x)]%2B\mathbb{E}_{y\sim p_{data(y)}}[\log(1-D_{x}(F(y))]"></p>
 
 Therefore, the total Adverserial loss is expressed as:
 
