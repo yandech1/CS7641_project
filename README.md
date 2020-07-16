@@ -149,10 +149,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 </figure>
  
 #### ResNet with default generator configuration and different discriminator
- - PixelGAN
- - PatchGAN (n_layers=1) 
- - PatchGAN (n_layers=3) 
- - PatchGAN (n_layers=5) = ImageGAN
+We test the effect of varying the patch size N of our discriminator receptive fields, from a 1 × 1 “PixelGAN” to a ull 286 × 286 “ImageGAN”.
  
   <figure>
  <p align="center">
