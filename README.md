@@ -90,7 +90,7 @@ In order to stabilize our training procedures, we contructed a loop that consist
 We train our Resnet generator and PatchGAN (70 x 70) model on landcape photographs and artistic paintings from Monet, Cezanne, Ukiyo-e, and Van Gogh. Using CycleGAN, we successfully learned to mimic the style of an entire collection of artworks, rather than transferring the style of a single selected piece of art. The generated pictures can be successfully visualized in Figure 2 and 3. 
 <figure>
   <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli"  width="80%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp2.png?raw=true" alt="Trulli"  width="75%"/><br />
   <b> Figure 2: Collection style transfer I: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh. </b><br> 
    <br><br>
    </p>
@@ -99,7 +99,7 @@ We train our Resnet generator and PatchGAN (70 x 70) model on landcape photograp
  
 <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli"  width="80%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%201/exp1.png?raw=true" alt="Trulli"  width="75%"/><br />
   <b>Figure 3: Collection style transfer II: we transfer input images into the artistic styles of Monet, Cezanne, Ukiyo-e, and Van Gogh.</b><br> 
   <br><br>
   </p>
