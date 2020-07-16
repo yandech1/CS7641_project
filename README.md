@@ -133,6 +133,7 @@ Four different types of generator models are tested, and the results can be visu
  - Resnet with norm_type = Instance Norm
  - U-Net and PatchGAN with norm_type = Batch Norm
  - U-Net with norm_type = Instance Norm
+
 From the visual inspection, it is clear that ResNet with Instance Normalization performs way better than the other architecture. A simple observation is that the result of stylization should not, in general, depend on the contrast of the content image. In fact, the neural style transfer is used to transfer elements from a style image to the content image such that the contrast of the stylized image is similar to the contrast of the style image. Thus, the generator network should discard contrast information in the content image. This is achieved replace batch normalization with instance normalization everywhere in the generator network G. The normalization process allows us to remove instance-specific contrast information from the content image, which simplifies generation. In practice, this results in vastly improved generated images.
  
  <figure>
