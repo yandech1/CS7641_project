@@ -120,7 +120,7 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
 <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli"  width="80%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%204/Literature_comparison.png?raw=true" alt="Trulli"  width="90%"/><br />
   <b> Figure 5: Comparison of CycleGAN method with recent neural style transfer techniques on photo stylization </b><br> 
   <br><br>
    </p>
@@ -159,7 +159,7 @@ We also tested the effects of padding on the generated images. This spatial padd
  
  <figure>
  <p align="center">
-  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" width="75%"/><br />
+  <img src="https://github.com/bethanystate/CS7641_project/blob/master/Results/Figure%206/padding_type2.jpg?raw=true" alt="Trulli" width="50%"/><br />
   <b> Figure 8: Qualitative comparison of the effect of different padding type.  </b><br> 
   <br><br>
    </p>
