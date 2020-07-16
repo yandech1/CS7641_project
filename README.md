@@ -177,8 +177,8 @@ In Figure 5, we compare the neural style transfer using CycleGAN results with ne
 
  
 #### Different loss function
-In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x~p}_{data}(x)[(D(G(x))-1)^2]"> and train the D to minimize 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y~p}_{data}(y)[(D(y)-1)^2]+B\mathbb{E}_{x~p}_{data}(x)[D(G(x))^2]"> in order to reduce oscillation.
+In the beggining, we used Binary Cross Entropy for adversarial losses to both mapping functions. However, as shown in Figure 9, this loss turns out to be very unstable during training. We replaced the negative log likelihood objective by a mean squared error loss. This loss is more stable during training and generates higher quality results. In particular, for a GAN loss <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}_{GAN}(G, D, X, Y)">, we train the G to minimize <img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{x\sim p_{data(x)}}[(D(G(x))-1)^2]"> and train the D to minimize 
+<img src="https://render.githubusercontent.com/render/math?math=\mathbb{E}_{y\sim p_{data(y)}}[(D(y)-1)^2]+\mathbb{E}_{x\sim p_{data(x)}}[D(G(x))^2]"> in order to reduce oscillation.
 
 <figure>
  <p align="center">
