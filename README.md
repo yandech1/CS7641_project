@@ -3,7 +3,7 @@ Image-to-image translation is a class of vision and graphics problems where the 
 ## 2. Dataset
 The dataset used for this project is sourced from a [UC Berkley CycleGAN Directory](https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/) and is downloaded from by[TensorFlow Datasets](https://www.tensorflow.org/datasets/catalog/cycle_gan#cycle_ganmonet2photo). It consists of 8,000+ images from 2 classes: French Impressionist paintings and modern photography both of landscapes and other natural scenes. The size of the dataset for each artist/style was 526, 1073, 400, and 463 for Cezanne, Monet, Van Gigh, and Ukiyo-e. 
 ## 3. Formulation
-In CycleGAN, there is no paired data to train on, so there is no guarantee that the input <img src="https://render.githubusercontent.com/render/math?math=X"> and the target pair <img src="https://render.githubusercontent.com/render/math?math=Y"> are meaningful during training. Thus, in order to enforce that the network learns the correct mapping, the cycle-consistency loss is used. In addition, adversarial loss is used to train generator and discriminator networks. Moreover, the identity loss is used to make sure generators generate the same image if the input image belongs to their target domian. 
+In CycleGAN, there is no paired data to train on, so there is no guarantee that the input <img src="https://render.githubusercontent.com/render/math?math=X"> and the target pair <img src="https://render.githubusercontent.com/render/math?math=Y"> are meaningful during training. Thus, in order to enforce that the network learns the correct mapping, the cycle-consistency loss is used. In addition, adversarial loss is used to train generator and discriminator networks. Moreover, the identity loss is used to make sure generators generate the same image if the input image belongs to their target domain. 
 #### 3.1 Adversarial loss
 The objective of adversarial losses for the mapping function <img src="https://render.githubusercontent.com/render/math?math=G : X \rightarrow Y"> and its discriminator <img src="https://render.githubusercontent.com/render/math?math=D_{Y}"> is expressed as:
  
@@ -27,7 +27,7 @@ Adversarial losses alone do not guarantee that the content will preserved as it 
 <figure>
  <p align="center">
   <img src="https://miro.medium.com/max/1258/1*XhdrXh3UfCM4CecRrTwMCQ.png" width="60%"/><br />
-  <b> Figure 1: The CycleGAN model [3] contains two mapping functions <img src="https://render.githubusercontent.com/render/math?math=G:X\rightarrow Y"> and <img src="https://render.githubusercontent.com/render/math?math=F:Y \rightarrow X">, and associated adversarial discriminators <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=D_Y">. <img src="https://render.githubusercontent.com/render/math?math=D_Y"> encourages <img src="https://render.githubusercontent.com/render/math?math=G"> to translate <img src="https://render.githubusercontent.com/render/math?math=X"> in to outputs indistinguishable from domain <img src="https://render.githubusercontent.com/render/math?math=Y">,and vice versa for <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=F">.</b><br> 
+  <b> Figure 1: The CycleGAN model [3] contains two mapping functions <img src="https://render.githubusercontent.com/render/math?math=G:X\rightarrow Y"> and <img src="https://render.githubusercontent.com/render/math?math=F:Y \rightarrow X">, and associated adversarial discriminators <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=D_Y">. <img src="https://render.githubusercontent.com/render/math?math=D_Y"> encourages <img src="https://render.githubusercontent.com/render/math?math=G"> to translate <img src="https://render.githubusercontent.com/render/math?math=X"> in to outputs indistinguishable from domain <img src="https://render.githubusercontent.com/render/math?math=Y"> and vice versa for <img src="https://render.githubusercontent.com/render/math?math=D_X"> and <img src="https://render.githubusercontent.com/render/math?math=F">.</b><br> 
   <br><br>
    </p>
 </figure>
@@ -73,7 +73,7 @@ The 70 x 70 discriminator architecture is: C64-C128-C256-C512 [Default Configura
 For the 1 x 1 patch size, the PatchGAN is referred as PixelGAN. 
 The PixelGAN architecture is: C64-C128 (In this special case, all convolutions are 1 × 1 spatial filters)
 ##### 4.1.2.3 ImageGAN
-The full 256 x 256 patch size is termed as ImageGAN. The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
+The full 286 x 286 patch size is termed as ImageGAN. The ImageGAN architecture is: C64-C128-C256-C512-C512-C512
 #### 4.2 Training Details
 Random jitter was applied by resizing the 256×256 input images to 286 × 286 using Nearest Neighbor resizing method and then randomly cropping back to size 256 × 256. 
 
